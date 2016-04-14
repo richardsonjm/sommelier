@@ -32,6 +32,9 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   gem 'spring', '~> 1.7.1'
+  gem 'pry-rails', '~> 0.3.3'
+  gem 'better_errors', '~> 2.1.1'
+  gem 'binding_of_caller', '~> 0.7.2'
 end
 
 # bundle exec rake doc:rails generates the API under doc/api.
