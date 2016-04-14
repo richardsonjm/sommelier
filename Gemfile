@@ -10,6 +10,9 @@ gem 'dotenv-rails', group: [:development, :test]
 # Database
 gem 'sqlite3'
 
+# MongoDB adapater
+gem 'mongoid', '~> 5.1.0'
+
 # Assets
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
