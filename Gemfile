@@ -4,6 +4,9 @@ ruby '2.2.0'
 
 gem 'rails', '4.2.6'
 
+# Env variables (must be at top)
+gem 'dotenv-rails', group: [:development, :test]
+
 # Database
 gem 'sqlite3'
 
@@ -30,3 +33,6 @@ end
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+# Gems to install outside the Gemfile
+# foreman
