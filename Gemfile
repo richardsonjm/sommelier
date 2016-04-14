@@ -7,9 +7,6 @@ gem 'rails', '4.2.6'
 # Env variables (must be at top)
 gem 'dotenv-rails', group: [:development, :test]
 
-# Database
-gem 'sqlite3'
-
 # MongoDB adapater
 gem 'mongoid', '~> 5.1.0'
 
@@ -26,6 +23,8 @@ gem 'jbuilder', '~> 2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', "~> 8.2.4"
+  gem 'rspec-rails', "~> 3.3"
+  gem 'mongoid-rspec', '3.0.0'
 end
 
 group :development do
