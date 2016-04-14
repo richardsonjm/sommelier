@@ -15,3 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore environment variables
+/.env
+
+# Ignore other unneeded files
+.DS_Store
