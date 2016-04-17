@@ -60,6 +60,12 @@ RSpec.describe WineDotCom, type: :model do
       }.not_to change(Wine, :count)
     end
 
+    it "adds appelation record to database" do
+      expect {
+        subject.load_catalog
+      }.to change(Appellation, :count).by(1)
+    end
+
     it "decrements @records count by @size" do
       subject.instance_variable_set(:@records, 5)
       subject.instance_variable_set(:@size, 10)
@@ -80,6 +86,33 @@ RSpec.describe WineDotCom, type: :model do
       subject.instance_variable_set(:@size, 10)
       subject.load_catalog
       expect(subject.instance_variable_get(:@size)).to eq -5
+    end
+  end
+
+  describe "#appellation_for(record)" do
+    before do
+      @record = @response['Products']['List'][0]
+    end
+
+    it "creates new appellation when none exists" do
+      expect {
+        subject.appellation_for(@record)
+      }.to change(Appellation, :count).by(1)
+    end
+
+    it "does not create a new record for existing appellation" do
+      Appellation.create(
+        api_id: @record['Appellation']['Id'],
+        name: @record['Appellation']['Name'],
+        region: @record['Appellation']['Region']['Name']
+      )
+      expect {
+        subject.appellation_for(@record)
+      }.not_to change(Appellation, :count)
+    end
+
+    it "returns a appellation record" do
+      expect(subject.appellation_for(@record)).to eq Appellation.last
     end
   end
 end

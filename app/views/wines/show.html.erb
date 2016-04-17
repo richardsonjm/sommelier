@@ -10,5 +10,15 @@
   <%= @wine.price_retail %>
 </p>
 
+<p>
+  <strong>Appellation:</strong>
+  <%= @wine.appellation.name %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @wine.appellation.region %>
+</p>
+
 <%= link_to 'Edit', edit_wine_path(@wine) %> |
 <%= link_to 'Back', wines_path %>

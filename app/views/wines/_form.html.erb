@@ -19,6 +19,10 @@
     <%= f.label :price_retail %><br>
     <%= f.text_field :price_retail %>
   </div>
+  <div class="field">
+    <%= f.label :appellation_id %><br />
+    <%= f.collection_select :appellation_id, Appellation.all, :id, :name, include_blank: true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
