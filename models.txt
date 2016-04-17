@@ -1,0 +1,15 @@
+"Wine" => {
+  "Appellation"=>
+   {"Id"=>2398,
+    "Name"=>"Napa Valley",
+    "Region"=>
+     {"Id"=>101,
+      "Name"=>"California",
+    }},
+  "Varietal"=>
+   {"Id"=>139,
+    "Name"=>"Cabernet Sauvignon",
+    "WineType"=>
+     {"Id"=>124,
+      "Name"=>"Red Wines",
+}

@@ -1,0 +1,64 @@
+[{"Id"=>147264,
+  "Name"=>"Jamieson Ranch Vineyards Double Lariat Cabernet Sauvignon 2013",
+  "Url"=>
+   "http://www.wine.com/v6/Jamieson-Ranch-Vineyards-Double-Lariat-Cabernet-Sauvignon-2013/wine/147264/Detail.aspx",
+  "Appellation"=>
+   {"Id"=>2398,
+    "Name"=>"Napa Valley",
+    "Url"=>
+     "http://www.wine.com/v6/Napa-Valley/wine/list.aspx?N=7155+101+2398",
+    "Region"=>
+     {"Id"=>101,
+      "Name"=>"California",
+      "Url"=>"http://www.wine.com/v6/California/wine/list.aspx?N=7155+101",
+      "Area"=>nil}},
+  "Labels"=>
+   [{"Id"=>"147264m",
+     "Name"=>"thumbnail",
+     "Url"=>"http://cache.wine.com/labels/147264m.jpg"}],
+  "Type"=>"Wine",
+  "Varietal"=>
+   {"Id"=>139,
+    "Name"=>"Cabernet Sauvignon",
+    "Url"=>
+     "http://www.wine.com/v6/Cabernet-Sauvignon/wine/list.aspx?N=7155+124+139",
+    "WineType"=>
+     {"Id"=>124,
+      "Name"=>"Red Wines",
+      "Url"=>
+       "http://www.wine.com/v6/Red-Wines/wine/list.aspx?N=7155+124"}},
+  "Vineyard"=>
+   {"Id"=>999996814,
+    "Name"=>"Jamieson Ranch Vineyards",
+    "Url"=>
+     "http://www.wine.com/v6/Jamieson-Ranch-Vineyards/learnabout.aspx?winery=20462",
+    "ImageUrl"=>
+     "http://cache.wine.com/aboutwine/basics/images/winerypics/20462A.jpg",
+    "GeoLocation"=>
+     {"Latitude"=>-360,
+      "Longitude"=>-360,
+      "Url"=>"http://www.wine.com/v6/aboutwine/mapof.aspx?winery=20462"}},
+  "Vintage"=>"",
+  "Community"=>
+   {"Reviews"=>
+     {"HighestScore"=>0,
+      "List"=>[],
+      "Url"=>
+       "http://www.wine.com/v6/Jamieson-Ranch-Vineyards-Double-Lariat-Cabernet-Sauvignon-2013/wine/147264/Detail.aspx?pageType=reviews"},
+    "Url"=>
+     "http://www.wine.com/v6/Jamieson-Ranch-Vineyards-Double-Lariat-Cabernet-Sauvignon-2013/wine/147264/Detail.aspx"},
+  "Description"=>"",
+  "GeoLocation"=>
+   {"Latitude"=>-360,
+    "Longitude"=>-360,
+    "Url"=>"http://www.wine.com/v6/aboutwine/mapof.aspx?winery=20462"},
+  "PriceMax"=>46.99,
+  "PriceMin"=>34.99,
+  "PriceRetail"=>60.0,
+  "ProductAttributes"=>
+   [{"Id"=>0, "Name"=>"Has Large Label", "Url"=>"", "ImageUrl"=>""}],
+  "Ratings"=>{"HighestScore"=>94, "List"=>[]},
+  "Retail"=>nil,
+  "Vintages"=>{"List"=>[]}
+  }
+]
