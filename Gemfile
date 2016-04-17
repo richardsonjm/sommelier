@@ -37,6 +37,8 @@ group :development do
   gem 'binding_of_caller', '~> 0.7.2'
 end
 
+gem 'rails_12factor', group: :production
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
