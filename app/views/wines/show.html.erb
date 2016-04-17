@@ -20,5 +20,15 @@
   <%= @wine.appellation.region %>
 </p>
 
+<p>
+  <strong>Varietal:</strong>
+  <%= @wine.varietal.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @wine.varietal.type %>
+</p>
+
 <%= link_to 'Edit', edit_wine_path(@wine) %> |
 <%= link_to 'Back', wines_path %>

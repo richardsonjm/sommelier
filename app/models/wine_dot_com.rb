@@ -18,7 +18,7 @@ class WineDotCom
       response = self.catalog
       response['Products']['List'].each do |record|
         next unless record['Type'] == 'Wine'
-        attributes = wine_attributes(record, appellation_for(record))
+        attributes = wine_attributes(record, appellation_for(record), varietal_for(record))
         if wine = Wine.find_by(api_id: attributes[:api_id])
           wine.update(attributes)
         else
@@ -31,12 +31,13 @@ class WineDotCom
     end
   end
 
-  def wine_attributes(record, appellation)
+  def wine_attributes(record, appellation, varietal)
     {
       api_id: record['Id'],
       name: record['Name'],
       price_retail: record['PriceRetail'],
-      appellation: appellation
+      appellation: appellation,
+      varietal: varietal
     }
   end
 
@@ -52,5 +53,19 @@ class WineDotCom
       appellation = Appellation.create(attributes)
     end
     appellation
+  end
+
+  def varietal_for(record)
+    attributes = {
+      api_id: record['Varietal']['Id'],
+      name: record['Varietal']['Name'],
+      type: record['Varietal']['WineType']['Name']
+    }
+    if varietal = Varietal.find_by(api_id: attributes[:api_id])
+      varietal.update(attributes)
+    else
+      varietal = Varietal.create(attributes)
+    end
+    varietal
   end
 end

@@ -66,6 +66,12 @@ RSpec.describe WineDotCom, type: :model do
       }.to change(Appellation, :count).by(1)
     end
 
+    it "adds varietal record to database" do
+      expect {
+        subject.load_catalog
+      }.to change(Varietal, :count).by(1)
+    end
+
     it "decrements @records count by @size" do
       subject.instance_variable_set(:@records, 5)
       subject.instance_variable_set(:@size, 10)
@@ -113,6 +119,33 @@ RSpec.describe WineDotCom, type: :model do
 
     it "returns a appellation record" do
       expect(subject.appellation_for(@record)).to eq Appellation.last
+    end
+  end
+
+  describe "#varietal_for(record)" do
+    before do
+      @record = @response['Products']['List'][0]
+    end
+
+    it "creates new varietal when none exists" do
+      expect {
+        subject.varietal_for(@record)
+      }.to change(Varietal, :count).by(1)
+    end
+
+    it "does not create a new record for existing varietal" do
+      Varietal.create(
+        api_id: @record['Varietal']['Id'],
+        name: @record['Varietal']['Name'],
+        type: @record['Varietal']['WineType']['Name']
+      )
+      expect {
+        subject.varietal_for(@record)
+      }.not_to change(Varietal, :count)
+    end
+
+    it "returns a varietal record" do
+      expect(subject.varietal_for(@record)).to eq Varietal.last
     end
   end
 end
