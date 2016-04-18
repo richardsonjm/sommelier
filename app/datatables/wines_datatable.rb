@@ -42,20 +42,20 @@ private
   end
 
   def search_term
-    Regexp.quote(params[:search][:value])
+    Regexp.new(params[:search][:value].split(' ').join('|'), "i")
   end
 
   def wine_matches(wines)
-    wines.where(name: /#{search_term}/i)
+    wines.where(name: search_term)
   end
 
   def varietal_matches
-    varietal_ids = Varietal.where(name: /#{search_term}/i).only(:_id).map(&:_id)
+    varietal_ids = Varietal.where(name: search_term).only(:_id).map(&:_id)
     Wine.where(:varietal_id.in => varietal_ids)
   end
 
   def appellation_matches
-    appellation_ids = Appellation.where(name: /#{search_term}/i).only(:_id).map(&:_id)
+    appellation_ids = Appellation.where(name: search_term).only(:_id).map(&:_id)
     Wine.where(:appellation_id.in => appellation_ids)
   end
 
