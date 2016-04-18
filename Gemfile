@@ -21,6 +21,9 @@ gem 'turbolinks', '~> 2.5.3'
 gem 'jbuilder', '~> 2.0'
 gem 'httparty', '~> 0.13.7'
 
+# Data management
+gem 'kaminari'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', "~> 8.2.4"
