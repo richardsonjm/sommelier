@@ -2,9 +2,7 @@
 
 <h1>Listing Wines</h1>
 
-<%= paginate @wines %>
-
-<table id="wines">
+<table id="wines" data-source="<%= wines_url(format: "json") %>">
   <thead>
     <tr>
       <th>Name</th>
@@ -13,26 +11,10 @@
       <th>Region</th>
       <th>Varietal</th>
       <th>Type</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @wines.each do |wine| %>
-      <tr>
-        <td><%= wine.name %></td>
-        <td><%= wine.price_retail %></td>
-        <td><%= wine.appellation.name %></td>
-        <td><%= wine.appellation.region %></td>
-        <td><%= wine.varietal.name %></td>
-        <td><%= wine.varietal.type %></td>
-        <td><%= link_to 'Show', wine %></td>
-        <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-        <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
   </tbody>
 </table>
 
