@@ -35,27 +35,32 @@ private
   def fetch_wines
     wines = Wine.order("#{sort_column} #{sort_direction}")
     wines = wines.page(page).per(per)
-    if params[:search][:value].present?
-      wines = wine_matches(wines) | varietal_matches | appellation_matches
+    if search_string.present?
+      results = []
+      search_string.split(' ').each do |term|
+        @search_term = Regexp.new(term, "i")
+        results << (wine_matches(wines) | varietal_matches | appellation_matches)
+      end
+      wines = results.inject(:&)
     end
     wines
   end
 
-  def search_term
-    Regexp.new(params[:search][:value].split(' ').join('|'), "i")
+  def search_string
+    params[:search][:value]
   end
 
   def wine_matches(wines)
-    wines.where(name: search_term)
+    wines.where(name: @search_term)
   end
 
   def varietal_matches
-    varietal_ids = Varietal.where(name: search_term).only(:_id).map(&:_id)
+    varietal_ids = Varietal.or({name: @search_term}, type: @search_term).only(:_id).map(&:_id)
     Wine.where(:varietal_id.in => varietal_ids)
   end
 
   def appellation_matches
-    appellation_ids = Appellation.where(name: search_term).only(:_id).map(&:_id)
+    appellation_ids = Appellation.or({name: @search_term}, region: @search_term).only(:_id).map(&:_id)
     Wine.where(:appellation_id.in => appellation_ids)
   end
 
