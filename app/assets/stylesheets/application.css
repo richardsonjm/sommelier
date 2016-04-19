@@ -13,4 +13,6 @@
  *= require_tree .
  *= require dataTables/jquery.dataTables
  *= require_self
+ *= require foundation_and_overrides
+
  */
