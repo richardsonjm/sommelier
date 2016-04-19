@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Wines</h1>
+<h1>Wines <%= render 'layouts/wine_dot_com_logo' %></h1>
+
+<%= link_to 'New Wine', new_wine_path, class: 'button' %>
 
 <table id="wines" data-source="<%= wines_url(format: "json") %>">
   <thead>
@@ -17,7 +19,3 @@
   <tbody>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Wine', new_wine_path %>

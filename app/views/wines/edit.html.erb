@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @wine %> |
-<%= link_to 'Back', wines_path %>
+<div class="button-group">
+  <%= link_to 'Show', @wine %>
+  <%= link_to 'Back', wines_path, class: 'button' %>
+</div>
