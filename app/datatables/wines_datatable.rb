@@ -20,10 +20,10 @@ private
       [
         link_to(wine.name, wine),
         wine.price_retail,
-        wine.appellation.name,
-        wine.appellation.region,
-        wine.varietal.name,
-        wine.varietal.type
+        wine.appellation.try(:name),
+        wine.appellation.try(:region),
+        wine.varietal.try(:name),
+        wine.varietal.try(:type)
       ]
     end
   end
