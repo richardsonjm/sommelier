@@ -2,7 +2,10 @@ class WinesController < ApplicationController
   before_action :set_wine, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wines = Wine.all
+    respond_to do |format|
+      format.html
+      format.json { render json: WinesDatatable.new(view_context) }
+    end
   end
 
   def show
