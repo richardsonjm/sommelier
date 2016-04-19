@@ -28,6 +28,6 @@
     <%= f.collection_select :varietal_id, Varietal.all, :id, :name, include_blank: true %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'button'%>
   </div>
 <% end %>

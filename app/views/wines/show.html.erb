@@ -1,34 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @wine.name %>
-</p>
+<h2><%= @wine.name %></h2>
 
 <p>
   <strong>Price retail:</strong>
   <%= @wine.price_retail %>
 </p>
 
-<p>
-  <strong>Appellation:</strong>
-  <%= @wine.appellation.name %>
-</p>
+<% if @wine.appellation %>
+  <p>
+    <strong>Appellation:</strong>
+    <%= @wine.appellation.name %>
+  </p>
 
-<p>
-  <strong>Region:</strong>
-  <%= @wine.appellation.region %>
-</p>
+  <p>
+    <strong>Region:</strong>
+    <%= @wine.appellation.region %>
+  </p>
+<% end %>
 
-<p>
-  <strong>Varietal:</strong>
-  <%= @wine.varietal.name %>
-</p>
+<% if @wine.varietal %>
+  <p>
+    <strong>Varietal:</strong>
+    <%= @wine.varietal.name %>
+  </p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @wine.varietal.type %>
-</p>
+  <p>
+    <strong>Type:</strong>
+    <%= @wine.varietal.type %>
+  </p>
+<% end %>
 
-<%= link_to 'Edit', edit_wine_path(@wine) %> |
-<%= link_to 'Back', wines_path %>
+<div class="button-group">
+  <%= link_to 'Edit', edit_wine_path(@wine), class: 'button' %>
+  <%= link_to 'Back', wines_path, class: 'button' %>
+</div>
