@@ -34,4 +34,5 @@
 <div class="button-group">
   <%= link_to 'Edit', edit_wine_path(@wine), class: 'button' %>
   <%= link_to 'Back', wines_path, class: 'button' %>
+  <%= link_to 'Destroy', @wine, method: :delete, data: { confirm: 'Are you sure?' }, class: 'alert button' %>
 </div>
