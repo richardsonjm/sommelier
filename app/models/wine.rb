@@ -9,5 +9,6 @@ class Wine
   belongs_to :appellation
   belongs_to :varietal
 
-  validates_presence_of :name, :price_retail
+  validates_presence_of :name
+  validates_numericality_of :price_retail
 end
