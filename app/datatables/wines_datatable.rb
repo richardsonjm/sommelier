@@ -19,7 +19,7 @@ private
     wines.map do |wine|
       [
         link_to(wine.name, wine),
-        wine.price_retail,
+        wine.price_retail.try(:dollars),
         wine.appellation.try(:name),
         wine.appellation.try(:region),
         wine.varietal.try(:name),

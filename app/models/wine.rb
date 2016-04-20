@@ -2,7 +2,7 @@ class Wine
   include Mongoid::Document
   field :api_id, type: Integer
   field :name, type: String
-  field :price_retail, type: String
+  field :price_retail, type: Money
 
   index({ api_id: 1}, { unique: true })
 
