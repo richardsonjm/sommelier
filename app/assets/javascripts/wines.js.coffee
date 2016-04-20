@@ -1,7 +1,8 @@
 ready = ->
   $('#wines').dataTable
     serverSide: true,
-    ajax: $('#wines').data('source')
+    ajax: $('#wines').data('source'),
+    responsive: true
 
   $.fn.dataTable.ext.errMode = 'throw';
 

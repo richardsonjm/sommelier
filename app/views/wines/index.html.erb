@@ -4,7 +4,7 @@
 
 <%= link_to 'New Wine', new_wine_path, class: 'button' %>
 
-<table id="wines" data-source="<%= wines_url(format: "json") %>">
+<table id="wines" class="display responsive no-wrap" data-source="<%= wines_url(format: "json") %>">
   <thead>
     <tr>
       <th>Name</th>
