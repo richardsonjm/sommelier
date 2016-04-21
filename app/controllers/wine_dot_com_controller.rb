@@ -1,7 +1,7 @@
 class WineDotComController < ApplicationController
   def load_catalog
     WineDotCom.new(params[:records].to_i).load_catalog
-    @notice = "Wine.com records successfully added to the database."
+    @notice = "Wine.com records being added to database."
   end
 
   def dump_catalog

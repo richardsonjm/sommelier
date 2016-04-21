@@ -27,6 +27,9 @@ gem 'httparty', '~> 0.13.7'
 gem 'kaminari'
 gem 'money-rails', '~> 1.6.0'
 
+# Jobs
+gem 'sidekiq', '~> 4.1.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', "~> 8.2.4"
