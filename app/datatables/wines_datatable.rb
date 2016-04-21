@@ -38,8 +38,8 @@ private
     if search_string.present?
       results = []
       search_string.split(' ').each do |term|
-        @search_term = Regexp.new(term, "i")
-        results << (wine_matches(wines) | varietal_matches | appellation_matches)
+        @term = term
+        results << (wine_matches | varietal_matches | appellation_matches)
       end
       wines = results.inject(:&)
     end
@@ -50,18 +50,18 @@ private
     params[:search][:value]
   end
 
-  def wine_matches(wines)
-    wines.where(name: @search_term)
+  def wine_matches
+    Wine.search(@term).records.to_a
   end
 
   def varietal_matches
-    varietal_ids = Varietal.or({name: @search_term}, type: @search_term).only(:_id).map(&:_id)
-    Wine.where(:varietal_id.in => varietal_ids)
+    varietal_ids = Varietal.search(@term).records.to_a.map(&:_id)
+    Wine.where(:varietal_id.in => varietal_ids).to_a
   end
 
   def appellation_matches
-    appellation_ids = Appellation.or({name: @search_term}, region: @search_term).only(:_id).map(&:_id)
-    Wine.where(:appellation_id.in => appellation_ids)
+    appellation_ids = Appellation.search(@term).records.to_a.map(&:_id)
+    Wine.where(:appellation_id.in => appellation_ids).to_a
   end
 
   def page

@@ -26,6 +26,8 @@ gem 'httparty', '~> 0.13.7'
 # Data management
 gem 'kaminari'
 gem 'money-rails', '~> 1.6.0'
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 
 # Jobs
 gem 'sidekiq', '~> 4.1.1'
