@@ -41,6 +41,7 @@ group :development do
   gem 'pry-rails', '~> 0.3.3'
   gem 'better_errors', '~> 2.1.1'
   gem 'binding_of_caller', '~> 0.7.2'
+  gem 'quiet_assets', group: :development
 end
 
 gem 'rails_12factor', group: :production
