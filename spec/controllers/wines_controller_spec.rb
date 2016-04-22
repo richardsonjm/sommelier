@@ -37,10 +37,16 @@ RSpec.describe WinesController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all wines as @wines" do
+    it "assigns renders template for html" do
       wine = Wine.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:wines)).to eq([wine])
+      expect(response).to render_template("index")
+    end
+
+    it "assigns calls WinesDatatable for json" do
+      wine = Wine.create! valid_attributes
+      expect(WinesDatatable).to receive(:new)
+      xhr :get, :index, format: :json
     end
   end
 
