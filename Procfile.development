@@ -1,4 +1,6 @@
 # Procfile for development
 web: bundle exec rails server
 db: mongod
+redis: redis-server
+worker: bundle exec sidekiq -q default
 log: tail -f -n 0 log/development.log

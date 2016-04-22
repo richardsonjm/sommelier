@@ -21,3 +21,6 @@
 
 # Ignore other unneeded files
 .DS_Store
+
+# Redis
+/dump.rdb
