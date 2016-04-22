@@ -1,14 +1,16 @@
 <div class='flash-notice'></div>
-
+<h1>Dashboard</h1>
+<hr>
+<h3>Wine.com API</h3>
 <div class="row">
-  <div class="small-6 columns">
+  <div class="small-12 large-6 columns">
     <div class='load-catalog'>
       <%= render 'wine_dot_com/load_catalog_form' %>
     </div>
   </div>
-  <div class="small-6 columns">
+  <div class="small-12 large-6 columns">
     <div class='dump-catalog'>
-      <%= link_to 'Remove Wine.com data', dump_catalog_path, method: :delete, remote: true, data: { confirm: 'Are you sure? This cannot be undone.' }, class: 'button' %>
+      <%= link_to 'Remove records', dump_catalog_path, method: :delete, remote: true, data: { confirm: 'Are you sure? This cannot be undone.' }, class: 'button' %>
     </div>
   </div>
 </div>
