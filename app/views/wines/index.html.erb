@@ -4,7 +4,7 @@
 
 <%= link_to 'New Wine', new_wine_path, class: 'button' %>
 
-<table id="wines" class="display responsive no-wrap" data-source="<%= wines_url(format: "json") %>">
+<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -16,6 +16,11 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="wines">
+    <%= render partial: 'wine', collection: @wines %>
   </tbody>
 </table>
+
+<div id='wines-paginator'>
+  <%= paginate @wines, :remote => true %>
+</div>
