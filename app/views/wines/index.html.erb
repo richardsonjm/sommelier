@@ -2,7 +2,14 @@
 
 <h1>Wines <%= render 'layouts/wine_dot_com_logo' %></h1>
 
-<%= link_to 'New Wine', new_wine_path, class: 'button' %>
+<div class="row">
+  <div class="small-12 medium-6 columns">
+    <%= link_to 'New Wine', new_wine_path, class: 'button' %>
+  </div>
+  <div class="small-12 medium-6 columns">
+    <%= render 'search' %>
+  </div>
+</div>
 
 <table>
   <thead>
