@@ -2,9 +2,16 @@
 
 <h1>Wines <%= render 'layouts/wine_dot_com_logo' %></h1>
 
-<%= link_to 'New Wine', new_wine_path, class: 'button' %>
+<div class="row">
+  <div class="small-12 medium-6 columns">
+    <%= link_to 'New Wine', new_wine_path, class: 'button' %>
+  </div>
+  <div class="small-12 medium-6 columns">
+    <%= render 'search' %>
+  </div>
+</div>
 
-<table id="wines" class="display responsive no-wrap" data-source="<%= wines_url(format: "json") %>">
+<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -16,6 +23,11 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="wines">
+    <%= render partial: 'wine', collection: @wines %>
   </tbody>
 </table>
+
+<div id='wines-paginator'>
+  <%= paginate @wines, :remote => true %>
+</div>

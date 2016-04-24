@@ -23,4 +23,12 @@ class Wine
     ]
     document.search_terms = attributes.compact.join(' ')
   end
+
+  def self.search(search_terms)
+    Wine.where(search_terms: search_to_regex(search_terms))
+  end
+
+  def self.search_to_regex(search_terms)
+    Regexp.new(search_terms.split.map {|term| "(?=.*#{term})" }.join.concat(".*"), "i")
+  end
 end

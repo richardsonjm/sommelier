@@ -1,0 +1,2 @@
+$('#wines').html('<%= j render partial: "wine", collection: @wines %>');
+$('#wines-paginator').html('<%= j paginate @wines, :remote => true %>');

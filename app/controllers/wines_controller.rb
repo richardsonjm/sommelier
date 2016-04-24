@@ -2,9 +2,10 @@ class WinesController < ApplicationController
   before_action :set_wine, only: [:show, :edit, :update, :destroy]
 
   def index
-    respond_to do |format|
-      format.html
-      format.json { render json: WinesDatatable.new(view_context) }
+    if search_terms = params[:search]
+      @wines = Wine.search(search_terms).page(params[:page]).per(15)
+    else
+      @wines = Wine.page(params[:page]).per(15)
     end
   end
 

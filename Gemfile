@@ -16,7 +16,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails', '~> 4.1.1'
 gem 'turbolinks', '~> 2.5.3'
-gem 'jquery-datatables-rails', '~> 3.3.0'
 gem 'foundation-rails', '~> 6.2.1'
 
 # APIs
