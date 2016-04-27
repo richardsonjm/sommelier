@@ -1,8 +1,8 @@
 <tr>
   <td><%= link_to wine.name, wine %></td>
   <td><%= wine.price_retail %></td>
-  <td><%= wine.appellation.name %></td>
-  <td><%= wine.appellation.region %></td>
-  <td><%= wine.varietal.name %></td>
-  <td><%= wine.varietal.type %></td>
+  <td><%= wine.appellation.try(:name) %></td>
+  <td><%= wine.appellation.try(:region) %></td>
+  <td><%= wine.varietal.try(:name) %></td>
+  <td><%= wine.varietal.try(:type) %></td>
 </tr>
